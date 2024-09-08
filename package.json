@@ -1,0 +1,19 @@
+{
+  "name": "kill-wechat-devtools",
+  "version": "1.0.0",
+  "description": "终止所有微信开发者工具（Wechat Devtools）进程",
+  "main": "src/index.js",
+  "bin": {
+    "kill-wechat-devtools": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["Wechat Devtools", "微信开发者工具"],
+  "author": "elvinpeng",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elvinn/kill-wechat-devtools.git"
+  }
+}
