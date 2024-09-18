@@ -16,8 +16,9 @@ program
 program.parse(process.argv);
 const options = program.opts();
 
-killAll()
+killAll().then(() => {
+  if (options.reopen) {
+    open();
+  }
+});
 
-if (options.reopen) {
-  open();
-}
