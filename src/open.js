@@ -4,33 +4,31 @@ const execPromise = util.promisify(exec);
 
 const { isWindows, isMac } = require('./const');
 
-async function killOnMac(name) {
-  const psCommand = `pkill -f ${name}`;
+async function openOnMac(name) {
+  const psCommand = `open -a ${name}`;
   try {
     await execPromise(psCommand);
   } catch (err) {
     if (err.code === 1) {
-      console.log(`恭喜你没有运行 ${name} 🎉`);
+      console.error(`打开 ${name} 失败.`);
       return;
     }
 
     throw err;
   }
-  console.log(`Good Job 🔫 !`);
 }
 
 /**
- * 终止所有名称包含 name 的进程和它的子进程
+ * 打开所有名称包含 name 的进程
  * @param {string} name 进程包含的名称
  */
-async function killAll(name = 'wechatwebdevtools') {
+async function open(name = 'wechatwebdevtools') {
   if (isMac) {
-    return killOnMac(name);
+    return openOnMac(name);
   }
   if (isWindows) {
     console.log('欢迎贡献 windows 平台代码');
   }
 }
 
-module.exports = killAll;
-
+module.exports = open;

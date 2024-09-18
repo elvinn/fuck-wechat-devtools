@@ -22,3 +22,11 @@ killWechatDev().then(() => {
   console.log('人生苦短');
 });
 ```
+
+## 更多例子
+
+强制退出微信开发者工具后，重新打开：
+
+``` bash
+npx kill-wechat-devtools -r
+```
