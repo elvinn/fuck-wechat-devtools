@@ -1,3 +1,11 @@
+async function sleep(millseconds) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, millseconds);
+  });
+}
+
 async function isProcessRunning(name) {
   const { exec } = require('child_process');
   const util = require('util');
