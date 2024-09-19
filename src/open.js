@@ -5,7 +5,7 @@ const execPromise = util.promisify(exec);
 const { isWindows, isMac } = require('./const');
 
 async function openOnMac(name) {
-  const psCommand = `open -a ${name}`;
+  const psCommand = `open -a "${name}"`;
   try {
     await execPromise(psCommand);
   } catch (err) {

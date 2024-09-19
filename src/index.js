@@ -3,6 +3,7 @@ const util = require('util');
 const execPromise = util.promisify(exec);
 
 const { isWindows, isMac } = require('./const');
+const { waitUntilKilled } = require('./utils');
 
 async function killOnMac(name) {
   const psCommand = `pkill -f ${name}`;
@@ -16,6 +17,9 @@ async function killOnMac(name) {
 
     throw err;
   }
+
+  await waitUntilKilled(name);
+
   console.log(`Good Job 🔫 !`);
 }
 
