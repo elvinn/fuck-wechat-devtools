@@ -28,8 +28,15 @@ async function isProcessRunning(name) {
  * @param {string} name 进程名
  */
 async function waitUntilKilled(name) {
+  const maxSleepTimes = 10;
+  let sleepTime = 0;
   while (await isProcessRunning(name)) {
     await sleep(500);
+
+    sleepTime++;
+    if (sleepTime > maxSleepTimes) {
+      console.log('等待进程被杀死超时 ⚠️');
+    }
   }
 }
 
