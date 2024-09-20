@@ -36,6 +36,7 @@ async function waitUntilKilled(name) {
     sleepTime++;
     if (sleepTime > maxSleepTimes) {
       console.log('等待进程被杀死超时 ⚠️');
+      break;
     }
   }
 }
